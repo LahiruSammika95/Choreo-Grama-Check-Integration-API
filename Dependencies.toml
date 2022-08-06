@@ -301,7 +301,7 @@ dependencies = [
 	{org = "ballerina", name = "http"},
 	{org = "ballerinai", name = "observe"},
 	{org = "chevon", name = "gramacheck_id_api"},
-	{org = "lahiru123", name = "police_check_v2"},
+	{org = "lahiru123", name = "police_check_api_pv"},
 	{org = "wso2", name = "choreo.sendsms"}
 ]
 modules = [
@@ -310,14 +310,14 @@ modules = [
 
 [[package]]
 org = "lahiru123"
-name = "police_check_v2"
+name = "police_check_api_pv"
 version = "1.0.0"
 dependencies = [
 	{org = "ballerina", name = "http"},
 	{org = "ballerina", name = "url"}
 ]
 modules = [
-	{org = "lahiru123", packageName = "police_check_v2", moduleName = "police_check_v2"}
+	{org = "lahiru123", packageName = "police_check_api_pv", moduleName = "police_check_api_pv"}
 ]
 
 [[package]]

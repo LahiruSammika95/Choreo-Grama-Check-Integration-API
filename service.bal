@@ -1,13 +1,15 @@
+import lahiru123/police_check_api_pv;
 import chevon/gramacheck_id_api;
 import areebniyas/addresscheck;
-import lahiru123/police_check_v2;
 import wso2/choreo.sendsms;
 import ballerina/http;
 
-configurable string idapiEndpointClientID = ?;
-configurable string idapiEndpointClientSecret = ?;
-configurable string police_check_apiEndpointClientID = ?;
-configurable string police_check_apiEndpointClientSecret = ?;
+configurable string idApiClientID = ?;
+configurable string idApiClientSecret = ?;
+configurable string addressApiClientID = ?;
+configurable string addressApiClientSecret = ?;
+configurable string policeApiClientID = ?;
+configurable string policeApiClientSecret = ?;
 
 type IsValid record {
     boolean valid;
@@ -25,7 +27,8 @@ service / on new http:Listener(9090) {
     resource function get validate(string nic, string address, string phone) returns json|error {
 
         /////////////////////////////////////ID VALIDATION API/////////////////////////////////////
-        gramacheck_id_api:Client gramacheck_id_apiEndpoint = check new ({auth: {clientId: "dN9DM0a01Ybjorj3g_3osbtbGpQa", clientSecret: "ABunqnutPH931_dpfVOs596I11Ma"}});
+        
+        gramacheck_id_api:Client gramacheck_id_apiEndpoint = check new ({auth: {clientId:idApiClientID, clientSecret:idApiClientSecret}});
         IsValid getChecknicResponse = check gramacheck_id_apiEndpoint->getChecknic(nic);
 
         if getChecknicResponse.valid == false {
@@ -37,7 +40,7 @@ service / on new http:Listener(9090) {
         }
 
         /////////////////////////////////////ADDRESS VALIDATION API/////////////////////////////////////
-        addresscheck:Client addresscheckEndpoint = check new ({auth: {clientId: "NeTXguM6mS9CW1x_PqaSRDuAWJga", clientSecret: "XMC3UoNTS4fEC20XY7lZum4fKOoa"}});
+        addresscheck:Client addresscheckEndpoint = check new ({auth: {clientId: addressApiClientID, clientSecret:addressApiClientSecret}});
         json getCheckaddressResponse = check addresscheckEndpoint->getCheckaddress(nic, getChecknicResponse.address);
         if getCheckaddressResponse.valid == false {
             apiResponse response = {
@@ -56,8 +59,8 @@ service / on new http:Listener(9090) {
         }
 
         /////////////////////////////////////POLICE VALIDATION API/////////////////////////////////////
-        police_check_v2:Client police_check_v2Endpoint = check new ({auth: {clientId: "S1ChxLJNfAXY34JvT2IH8TcGhOAa", clientSecret: "Q2pUhOJMf0YS8RUiRXYrBxi8Pk8a"}});
-        json getPersonCrimeRecordsResponse = check police_check_v2Endpoint->getPersoncrimerecords(nic);
+        police_check_api_pv:Client police_check_api_pvEndpoint = check new ({auth: {clientId:policeApiClientID, clientSecret:policeApiClientSecret}});
+        json getPersonCrimeRecordsResponse = check police_check_api_pvEndpoint->getPersoncrimerecords(nic);
 
         if getPersonCrimeRecordsResponse is json[] && getPersonCrimeRecordsResponse.length() > 0 {
             apiResponse response = {

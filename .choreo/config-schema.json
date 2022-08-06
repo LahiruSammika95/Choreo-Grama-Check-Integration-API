@@ -8,29 +8,39 @@
         "choreo_grama_check_integration_api": {
           "type": "object",
           "properties": {
-            "idapiEndpointClientID": {
+            "idApiClientID": {
               "type": "string",
               "description": ""
             },
-            "idapiEndpointClientSecret": {
+            "idApiClientSecret": {
               "type": "string",
               "description": ""
             },
-            "police_check_apiEndpointClientID": {
+            "addressApiClientID": {
               "type": "string",
               "description": ""
             },
-            "police_check_apiEndpointClientSecret": {
+            "addressApiClientSecret": {
+              "type": "string",
+              "description": ""
+            },
+            "policeApiClientID": {
+              "type": "string",
+              "description": ""
+            },
+            "policeApiClientSecret": {
               "type": "string",
               "description": ""
             }
           },
           "additionalProperties": false,
           "required": [
-            "idapiEndpointClientID",
-            "idapiEndpointClientSecret",
-            "police_check_apiEndpointClientID",
-            "police_check_apiEndpointClientSecret"
+            "idApiClientID",
+            "idApiClientSecret",
+            "addressApiClientID",
+            "addressApiClientSecret",
+            "policeApiClientID",
+            "policeApiClientSecret"
           ]
         }
       },
