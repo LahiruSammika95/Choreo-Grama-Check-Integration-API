@@ -1,1 +1,41 @@
-{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{},"additionalProperties":false}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "lahiru123": {
+      "type": "object",
+      "properties": {
+        "choreo_grama_check_integration_api": {
+          "type": "object",
+          "properties": {
+            "idapiEndpointClientID": {
+              "type": "string",
+              "description": ""
+            },
+            "idapiEndpointClientSecret": {
+              "type": "string",
+              "description": ""
+            },
+            "police_check_apiEndpointClientID": {
+              "type": "string",
+              "description": ""
+            },
+            "police_check_apiEndpointClientSecret": {
+              "type": "string",
+              "description": ""
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "idapiEndpointClientID",
+            "idapiEndpointClientSecret",
+            "police_check_apiEndpointClientID",
+            "police_check_apiEndpointClientSecret"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
