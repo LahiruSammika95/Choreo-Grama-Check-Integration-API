@@ -1,0 +1,9 @@
+[build-options]
+  observabilityIncluded = true
+
+[package]
+  distribution = "2201.1.1"
+  name = "choreo_grama_check_integration_api"
+  org = "lahiru123"
+  version = "0.1.0"
+
