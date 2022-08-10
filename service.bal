@@ -10,6 +10,7 @@ configurable string addressApiClientID = ?;
 configurable string addressApiClientSecret = ?;
 configurable string policeApiClientID = ?;
 configurable string policeApiClientSecret = ?;
+configurable string slackOauthToken = ?;
 
 type IsValid record {
     boolean valid;
@@ -23,8 +24,8 @@ type ApiResponse record {
 };
 function postMsgOnSlack(string nic, string address,string phone,string validationErr) returns string|error {
 
-            string slackMsg="Issue: The "+validationErr+". (NIC: "+nic+"  Contact  No: "+phone+" Address: "+address+")";
-            slack:Client slackEndpoint = check new ({auth: {token: "xoxb-3910737758228-3893774745143-Q3pRDjORWTi6gdZGaJ5pfwV7"}});
+            string slackMsg="Issue: The "+validationErr+". ( NIC: "+nic+"  Contact  No: "+phone+" Address: "+address+")";
+            slack:Client slackEndpoint = check new ({auth: {token: slackOauthToken}});
             slack:Message msg={channelName: "general", text:slackMsg};
             string msgResponse = check slackEndpoint->postMessage(msg);
             return msgResponse;

@@ -31,6 +31,10 @@
             "policeApiClientSecret": {
               "type": "string",
               "description": ""
+            },
+            "slackOauthToken": {
+              "type": "string",
+              "description": ""
             }
           },
           "additionalProperties": false,
@@ -40,7 +44,8 @@
             "addressApiClientID",
             "addressApiClientSecret",
             "policeApiClientID",
-            "policeApiClientSecret"
+            "policeApiClientSecret",
+            "slackOauthToken"
           ]
         }
       },
