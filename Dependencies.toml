@@ -281,6 +281,21 @@ modules = [
 ]
 
 [[package]]
+org = "ballerinax"
+name = "slack"
+version = "3.0.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "mime"},
+	{org = "ballerina", name = "os"},
+	{org = "ballerina", name = "regex"},
+	{org = "ballerina", name = "url"}
+]
+modules = [
+	{org = "ballerinax", packageName = "slack", moduleName = "slack"}
+]
+
+[[package]]
 org = "chevon"
 name = "gramacheck_id_api"
 version = "1.0.0"
@@ -300,6 +315,7 @@ dependencies = [
 	{org = "areebniyas", name = "addresscheck"},
 	{org = "ballerina", name = "http"},
 	{org = "ballerinai", name = "observe"},
+	{org = "ballerinax", name = "slack"},
 	{org = "chevon", name = "gramacheck_id_api"},
 	{org = "lahiru123", name = "police_check_api_pv"},
 	{org = "wso2", name = "choreo.sendsms"}
