@@ -26,7 +26,7 @@ function postMsgOnSlack(string nic, string address,string phone,string validatio
 
             string slackMsg="Issue: The "+validationErr+". ( NIC: "+nic+"  Contact  No: "+phone+" Address: "+address+")";
             slack:Client slackEndpoint = check new ({auth: {token: slackOauthToken}});
-            slack:Message msg={channelName: "general", text:slackMsg};
+            slack:Message msg={channelName: "support", text:slackMsg};
             string msgResponse = check slackEndpoint->postMessage(msg);
             return msgResponse;
             
